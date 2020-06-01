@@ -214,34 +214,42 @@
 //************************* 연습1*/
 
 /**@jsx jsx */
-import React, {useState, useEffect} from "react";
+import React from "react";
 import { useSpring, animated } from "react-spring";
 import { css, jsx } from '@emotion/core';
 import video from "./video.mp4";
 
 const Exam = () => {
-  // const [top, setTop] = useState(0)
 
   const firstTitle = useSpring({
     from: {
-      position: "relative",
+      position: "absolute",
       top: "0%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
     },
-    transition: "0.8s all", 
-    top: "10%", 
-    zIndex: 1
+    transition: "1s all", 
+    top: "5%", 
+    zIndex: 1,
   })
 
   const secondTitle = useSpring({
     from: {
-      position:"relative",
-      top: "0%",
+      position:"absolute",
+      top: "7%",
+      left: "50%",
       display: "none",
+      zIndex:2,
+      transform: "translate(-50%, -50%)",
     },
-    transition: "2s all",
-    display: "block",
-    top: "10%",
-    zIndex: 2
+
+    delay: 1500,
+    config: {duration: 1000},
+
+    to: {
+      display: "block",
+      top: "10%",
+    }
   })
 
   const arrowInfinite = useSpring({
@@ -253,8 +261,6 @@ const Exam = () => {
       }
     }
   })
-
-  
   
   return(
     <div css={wrapper}>
@@ -262,13 +268,13 @@ const Exam = () => {
       <animated.h1 style={secondTitle}>SANS FILTRE</animated.h1>
       <div css={videoInner}>
         <video src={video}
-        fliuid="fasle"
+          fliuid="fasle"
           loop autoPlay
           frameBorder='0'
           allow='autoplay; encrypted-media'
           allowFullScreen
           title='video'
-          height="300px"
+          height="480px"
           width="350px"
           z-index="-1"
         />
@@ -285,8 +291,8 @@ const wrapper = css`
   border: 1px red solid;
   width: 400px;
   height: 600px;
-  margin: 100px auto
-  ;
+  margin: 100px auto;
+  position: relative;
   background-color: rgb(140,47,65);
 
   h1 {
@@ -297,11 +303,10 @@ const wrapper = css`
 
   i {
     color: white;
-    /* border: 1px white solid; */
     display: block;
-    height: 50px;
     text-align: center;
     position: relative;
+    font-size: 24px;
   }
 `;
 
@@ -315,7 +320,7 @@ const angle = css`
   border-width: 0 34px 34px 0;
   border-color: transparent #8c2f41 hotpink transparent;
   position: absolute;
-  top: 74.5%;
+  top: 66%;
   right: 6%;
   transform: rotate( 90deg );
 `;
