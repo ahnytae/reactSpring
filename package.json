@@ -1,8 +1,8 @@
 {
-  "name": "react-spring",
-  "version": "0.1.0",
+  "name": "ahny",
+  "version": "0.0.2",
   "private": true,
-  "dependencies": {
+  "peerDependencies": {
     "@emotion/core": "^10.0.28",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -34,5 +34,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "dependencies": {}
 }
